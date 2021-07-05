@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 
-public class Flights implements Comparable<Flights> {
+public class Flight implements Comparable<Flight> {
     private int id;
     private int price;
     private String airportFrom;
     private String airportTo;
     private int travelTime;
 
-    public int compareTo(Flights o) {
+    public int compareTo(Flight o) {
         return this.price - o.price;
     }
 }

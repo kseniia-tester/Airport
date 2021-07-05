@@ -1,26 +1,26 @@
 package ru.netology.repository;
 
-import ru.netology.domain.Flights;
+import ru.netology.domain.Flight;
 import ru.netology.exception.NotFoundException;
 
-public class FlightsRepository {
-    private Flights[] items = new Flights[0];
+public class FlightRepository {
+    private Flight[] items = new Flight[0];
 
-    public void save(Flights item) {
+    public void save(Flight item) {
         int length = items.length + 1;
-        Flights[] tmp = new Flights[length];
+        Flight[] tmp = new Flight[length];
         System.arraycopy(items, 0, tmp, 0, items.length);
         int lastIndex = tmp.length - 1;
         tmp[lastIndex] = item;
         items = tmp;
     }
 
-    public Flights[] findAll() {
+    public Flight[] findAll() {
         return items;
     }
 
-    public Flights findById(int id) {
-        for (Flights item : items) {
+    public Flight findById(int id) {
+        for (Flight item : items) {
             if (item.getId() == id) {
                 return item;
             }
@@ -33,9 +33,9 @@ public class FlightsRepository {
             throw new NotFoundException("Элемент с id = " + id + " не найден!");
         }
         int length = items.length - 1;
-        Flights[] tmp = new Flights[length];
+        Flight[] tmp = new Flight[length];
         int index = 0;
-        for (Flights item : items) {
+        for (Flight item : items) {
             if (item.getId() != id) {
                 tmp[index] = item;
                 index++;
